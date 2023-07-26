@@ -17,16 +17,18 @@ public class Employee {
     @Id // made id primary key using @Id annotation
     @GeneratedValue
     private long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String role;
 
     Employee() {
         // default constructor
     }
 
-    Employee(String name, String role) {
+    Employee(String firstName, String lastName, String role) {
 
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.role = role;
 
     }
@@ -40,11 +42,30 @@ public class Employee {
     }
 
     public String getName() {
-        return name;
+        return firstName + " " + lastName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        String parts[] = name.split(" ");
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getRole() {
